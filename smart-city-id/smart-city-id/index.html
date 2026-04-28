@@ -1,0 +1,567 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SmartCity ID — Secure Identity Framework</title>
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+<div class="scan-overlay"></div>
+
+<!-- ══════════════════════════════════════════════════════════
+     PAGE 1 — LOGIN
+     ══════════════════════════════════════════════════════════ -->
+<div class="page active" id="login-page">
+  <div class="auth-container">
+    <div class="auth-box">
+      <div class="corner corner-tl"></div>
+      <div class="corner corner-tr"></div>
+      <div class="corner corner-bl"></div>
+      <div class="corner corner-br"></div>
+      <div class="secure-badge">256-BIT ENCRYPTED CONNECTION — SECURE SESSION ACTIVE</div>
+      <div class="brand">
+        <div class="brand-icon">🌆</div>
+        <h1>SmartCity&nbsp;ID</h1>
+        <p>SECURE IDENTITY FRAMEWORK v3.7 // AUTHORIZED ACCESS ONLY</p>
+      </div>
+
+      <div class="alert" id="login-alert"></div>
+
+      <form id="login-form" novalidate>
+        <div class="form-group">
+          <label for="login-username">User ID / Handle</label>
+          <div class="input-wrap">
+            <input type="text" id="login-username" placeholder="Enter username" autocomplete="username" />
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="login-password">Access Code</label>
+          <div class="input-wrap">
+            <input type="password" id="login-password" placeholder="Enter password" autocomplete="current-password" />
+            <button type="button" class="toggle-pw" title="Toggle visibility">👁</button>
+          </div>
+        </div>
+        <button type="submit" class="btn btn-primary">⚡ AUTHENTICATE</button>
+      </form>
+
+      <div class="auth-switch">
+        No account? <a onclick="document.getElementById('login-page').classList.remove('active'); document.getElementById('register-page').classList.add('active');">Register as Citizen →</a>
+      </div>
+
+      <hr class="divider" />
+      <div style="font-family:var(--font-mono);font-size:0.68rem;color:var(--text-dim);text-align:center;line-height:1.8">
+        DEMO CREDENTIALS<br>
+        Admin: <span style="color:var(--accent)">admin</span> / <span style="color:var(--accent)">Admin@2025</span><br>
+        Citizen: <span style="color:var(--accent2)">john_doe</span> / <span style="color:var(--accent2)">Citizen#01</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════════════════════════
+     PAGE 2 — REGISTER
+     ══════════════════════════════════════════════════════════ -->
+<div class="page" id="register-page">
+  <div class="auth-container">
+    <div class="auth-box">
+      <div class="corner corner-tl"></div>
+      <div class="corner corner-tr"></div>
+      <div class="corner corner-bl"></div>
+      <div class="corner corner-br"></div>
+      <div class="secure-badge">CITIZEN REGISTRATION — ENCRYPTED CHANNEL</div>
+      <div class="brand">
+        <div class="brand-icon">🆔</div>
+        <h1>Citizen&nbsp;Registration</h1>
+        <p>SMART CITY IDENTITY FRAMEWORK // NEW CITIZEN ONBOARDING</p>
+      </div>
+
+      <div class="alert" id="reg-alert"></div>
+
+      <form id="register-form" novalidate>
+        <div class="grid-2" style="gap:0.8rem">
+          <div class="form-group">
+            <label for="reg-fullname">Full Name</label>
+            <div class="input-wrap">
+              <input type="text" id="reg-fullname" placeholder="Your full name" />
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="reg-username">Username</label>
+            <div class="input-wrap">
+              <input type="text" id="reg-username" placeholder="min 3 chars" />
+            </div>
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="reg-district">District</label>
+          <div class="input-wrap">
+            <select id="reg-district">
+              <optgroup label="🌴 Kerala">
+                <option value="Thiruvananthapuram, Kerala">Thiruvananthapuram</option>
+                <option value="Kollam, Kerala">Kollam</option>
+                <option value="Pathanamthitta, Kerala">Pathanamthitta</option>
+                <option value="Alappuzha, Kerala">Alappuzha</option>
+                <option value="Kottayam, Kerala">Kottayam</option>
+                <option value="Idukki, Kerala">Idukki</option>
+                <option value="Ernakulam, Kerala">Ernakulam</option>
+                <option value="Thrissur, Kerala">Thrissur</option>
+                <option value="Palakkad, Kerala">Palakkad</option>
+                <option value="Malappuram, Kerala">Malappuram</option>
+                <option value="Kozhikode, Kerala">Kozhikode</option>
+                <option value="Wayanad, Kerala">Wayanad</option>
+                <option value="Kannur, Kerala">Kannur</option>
+                <option value="Kasaragod, Kerala">Kasaragod</option>
+              </optgroup>
+              <optgroup label="🏔 Karnataka">
+                <option value="Bengaluru Urban, Karnataka">Bengaluru Urban</option>
+                <option value="Bengaluru Rural, Karnataka">Bengaluru Rural</option>
+                <option value="Mysuru, Karnataka">Mysuru</option>
+                <option value="Mangaluru, Karnataka">Mangaluru</option>
+                <option value="Hubballi-Dharwad, Karnataka">Hubballi-Dharwad</option>
+                <option value="Belagavi, Karnataka">Belagavi</option>
+                <option value="Kalaburagi, Karnataka">Kalaburagi</option>
+                <option value="Shivamogga, Karnataka">Shivamogga</option>
+                <option value="Tumakuru, Karnataka">Tumakuru</option>
+                <option value="Davanagere, Karnataka">Davanagere</option>
+                <option value="Ballari, Karnataka">Ballari</option>
+                <option value="Vijayapura, Karnataka">Vijayapura</option>
+                <option value="Hassan, Karnataka">Hassan</option>
+                <option value="Udupi, Karnataka">Udupi</option>
+                <option value="Chikkamagaluru, Karnataka">Chikkamagaluru</option>
+                <option value="Kodagu, Karnataka">Kodagu</option>
+                <option value="Raichur, Karnataka">Raichur</option>
+                <option value="Koppal, Karnataka">Koppal</option>
+                <option value="Gadag, Karnataka">Gadag</option>
+                <option value="Dharwad, Karnataka">Dharwad</option>
+                <option value="Uttara Kannada, Karnataka">Uttara Kannada</option>
+                <option value="Haveri, Karnataka">Haveri</option>
+                <option value="Bagalkot, Karnataka">Bagalkot</option>
+                <option value="Bidar, Karnataka">Bidar</option>
+                <option value="Yadgir, Karnataka">Yadgir</option>
+                <option value="Chamarajanagar, Karnataka">Chamarajanagar</option>
+                <option value="Mandya, Karnataka">Mandya</option>
+                <option value="Chikkaballapur, Karnataka">Chikkaballapur</option>
+                <option value="Kolar, Karnataka">Kolar</option>
+                <option value="Ramanagara, Karnataka">Ramanagara</option>
+              </optgroup>
+            </select>
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="reg-pincode">Pincode</label>
+          <div class="input-wrap">
+            <input type="text" id="reg-pincode" placeholder="6-digit pincode" maxlength="6" pattern="[0-9]{6}" />
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="reg-email">Email Address</label>
+          <div class="input-wrap">
+            <input type="email" id="reg-email" placeholder="your@email.com" />
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="reg-password">Password</label>
+          <div class="input-wrap">
+            <input type="password" id="reg-password" placeholder="min 6 chars" />
+            <button type="button" class="toggle-pw">👁</button>
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="reg-confirm">Confirm Password</label>
+          <div class="input-wrap">
+            <input type="password" id="reg-confirm" placeholder="repeat password" />
+            <button type="button" class="toggle-pw">👁</button>
+          </div>
+        </div>
+        <button type="submit" class="btn btn-primary">✅ REGISTER CITIZEN</button>
+      </form>
+
+      <div class="auth-switch">
+        Already registered? <a onclick="document.getElementById('register-page').classList.remove('active'); document.getElementById('login-page').classList.add('active');">← Back to Login</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════════════════════════
+     PAGE 3 — CITIZEN DASHBOARD
+     ══════════════════════════════════════════════════════════ -->
+<div class="page" id="citizen-page">
+  <div class="dashboard">
+  <div class="sec-watermark">SMARTCITY-ID // AUTHORIZED ACCESS ONLY // v3.7</div>
+
+    <!-- Header -->
+    <header class="dash-header">
+      <div class="dash-logo">🌆 SmartCity OS</div>
+      <div class="dash-user-info">
+        <div class="dash-clock" id="c-clock">--:--:--</div>
+        <div class="user-badge">
+          <span id="c-username-badge">user</span>
+          <span class="role-chip citizen">CITIZEN</span>
+        </div>
+        <button class="btn btn-ghost btn-sm" id="btn-logout-citizen">⏏ LOGOUT</button>
+      </div>
+    </header>
+
+    <!-- Body -->
+    <div class="dash-body">
+
+      <!-- Emergency Banner -->
+      <div class="emergency-banner" id="c-emergency-banner">
+        ⚠&nbsp;&nbsp;EMERGENCY OVERRIDE ACTIVE — FOLLOW AUTHORITY INSTRUCTIONS IMMEDIATELY
+      </div>
+
+      <!-- Welcome -->
+      <div class="welcome-banner mb-15">
+        <div class="avatar">👤</div>
+        <div>
+          <h2 id="c-welcome">Welcome, Citizen</h2>
+          <p id="c-time-cond-banner">MORNING_SHIFT // AUTHENTICATED SESSION</p>
+        </div>
+      </div>
+
+      <!-- Stats Row -->
+      <div class="grid-4 mb-15">
+        <div class="stat-block">
+          <div class="stat-icon">🧠</div>
+          <div class="stat-label">AI Brain</div>
+          <div class="stat-value"><span class="status-dot dot-green"></span><span id="c-ai-status">ONLINE</span></div>
+        </div>
+        <div class="stat-block">
+          <div class="stat-icon">⚡</div>
+          <div class="stat-label">System Power</div>
+          <div class="stat-value" id="c-power">94%</div>
+        </div>
+        <div class="stat-block">
+          <div class="stat-icon">🔒</div>
+          <div class="stat-label">Security Level</div>
+          <div class="stat-value" id="c-security">ALPHA</div>
+        </div>
+        <div class="stat-block">
+          <div class="stat-icon">🚦</div>
+          <div class="stat-label">Traffic</div>
+          <div class="stat-value traffic-medium" id="c-traffic">MEDIUM</div>
+        </div>
+      </div>
+
+      <!-- Main Content -->
+      <div class="grid-2 mb-2">
+
+        <!-- Personal Info -->
+        <div class="card">
+          <div class="card-title"><span class="icon">🪪</span> Personal Identity Record</div>
+          <table class="info-table">
+            <tr><td>Full Name</td><td id="c-fullname">—</td></tr>
+            <tr><td>Username</td><td id="c-username">—</td></tr>
+            <tr><td>Role</td><td id="c-role">—</td></tr>
+            <tr><td>Email</td><td id="c-email">—</td></tr>
+            <tr><td>District</td><td id="c-district">—</td></tr>
+            <tr><td>Pincode</td><td id="c-pincode">—</td></tr>
+            <tr><td>Joined</td><td id="c-joined">—</td></tr>
+          </table>
+
+          <hr class="divider" />
+          <div style="font-family:var(--font-mono);font-size:0.7rem;color:var(--text-dim);background:rgba(255,60,120,0.05);border:1px solid rgba(255,60,120,0.15);padding:0.6rem;border-radius:2px;">
+            🔐 READ-ONLY ACCESS — Citizens cannot modify system data.<br>Contact admin for changes.
+          </div>
+        </div>
+
+        <!-- City Status -->
+        <div class="card">
+          <div class="card-title"><span class="icon">🏙</span> City Status Overview</div>
+          <div class="ai-brain-display">
+            <div class="ai-orb">🧠</div>
+            <div class="ai-status-text" id="c-ai-orb-status">AI BRAIN — ONLINE</div>
+          </div>
+          <hr class="divider" />
+          <div class="grid-2" style="gap:0.8rem;margin-top:0.5rem">
+            <div class="stat-block">
+              <div class="stat-label">Time Condition</div>
+              <div class="stat-value" style="font-size:0.85rem" id="c-time-cond">MORNING SHIFT</div>
+            </div>
+            <div class="stat-block">
+              <div class="stat-label">Last Updated</div>
+              <div class="stat-value" style="font-size:0.75rem;color:var(--text-muted)" id="c-timestamp">—</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Notice -->
+      <div class="card" style="background:rgba(0,212,255,0.03)">
+        <div class="card-title"><span class="icon">ℹ</span> Citizen Information</div>
+        <p style="font-size:0.88rem;color:var(--text-muted);line-height:1.7">
+          You are logged in as a <strong style="color:var(--accent)">Citizen</strong> of SmartCity. Your access is limited to personal information and city status monitoring. All administrative controls are restricted to authorized administrators. The city's AI systems operate 24/7 to ensure your safety and comfort.
+        </p>
+      </div>
+
+    </div><!-- /.dash-body -->
+  </div><!-- /.dashboard -->
+</div><!-- /#citizen-page -->
+
+<!-- ══════════════════════════════════════════════════════════
+     PAGE 4 — ADMIN CONTROL ROOM
+     ══════════════════════════════════════════════════════════ -->
+<div class="page" id="admin-page">
+  <div class="dashboard">
+  <div class="sec-watermark">SMARTCITY-CTRL // ADMIN RESTRICTED // v3.7</div>
+
+    <!-- Header -->
+    <header class="dash-header">
+      <div class="dash-logo">⚙ SmartCity CTRL</div>
+      <div class="dash-user-info">
+        <div class="dash-clock" id="a-clock">--:--:--</div>
+        <div class="user-badge">
+          <span id="a-admin-name">Admin</span>
+          <span class="role-chip admin">ADMIN</span>
+        </div>
+        <button class="btn btn-ghost btn-sm" id="btn-logout-admin">⏏ LOGOUT</button>
+      </div>
+    </header>
+
+    <!-- Body -->
+    <div class="dash-body">
+
+      <!-- Status strip -->
+      <div class="grid-4 mb-15">
+        <div class="stat-block">
+          <div class="stat-icon">🧠</div>
+          <div class="stat-label">AI Brain</div>
+          <div class="stat-value"><span class="status-dot dot-green"></span><span id="a-ai-status">ONLINE</span></div>
+        </div>
+        <div class="stat-block">
+          <div class="stat-icon">⚡</div>
+          <div class="stat-label">System Power</div>
+          <div class="stat-value" id="a-power">94%</div>
+        </div>
+        <div class="stat-block">
+          <div class="stat-icon">🔒</div>
+          <div class="stat-label">Security Level</div>
+          <div class="stat-value" id="a-security">ALPHA</div>
+        </div>
+        <div class="stat-block">
+          <div class="stat-icon">🚦</div>
+          <div class="stat-label">Traffic</div>
+          <div class="stat-value traffic-medium" id="a-traffic">MEDIUM</div>
+        </div>
+      </div>
+
+      <!-- Tabs -->
+      <div class="tabs">
+        <button class="tab-btn active" onclick="switchTab('tab-overview','this')" onclick="switchTab('tab-overview', this)">📊 Overview</button>
+        <button class="tab-btn" onclick="switchTab('tab-controls', this)">🎛 Controls</button>
+        <button class="tab-btn" onclick="switchTab('tab-sensors', this)">📡 Sensors</button>
+        <button class="tab-btn" onclick="switchTab('tab-logs', this)">📋 Logs</button>
+        <button class="tab-btn" onclick="switchTab('tab-users', this)">👥 Users</button>
+      </div>
+
+      <!-- TAB: OVERVIEW -->
+      <div class="tab-content active" id="tab-overview">
+        <div class="grid-3 mb-15">
+          <div class="card">
+            <div class="card-title"><span class="icon">🚨</span> Emergency Status</div>
+            <div style="text-align:center;padding:1rem 0">
+              <div class="stat-icon" style="font-size:2.5rem">🚨</div>
+              <div class="stat-value emergency-off" id="a-emergency-state">✔ STANDBY</div>
+              <div class="stat-label" style="margin-top:0.4rem">EMERGENCY OVERRIDE</div>
+            </div>
+          </div>
+          <div class="card">
+            <div class="card-title"><span class="icon">🧠</span> AI Brain Matrix</div>
+            <div class="ai-brain-display" style="padding:0.8rem">
+              <div class="ai-orb" style="width:60px;height:60px;font-size:1.5rem">🧠</div>
+              <div class="ai-status-text" id="a-ai-orb-status">ONLINE</div>
+            </div>
+            <div class="stat-label" style="text-align:center">Time: <span id="a-time-cond">MORNING SHIFT</span></div>
+          </div>
+          <div class="card">
+            <div class="card-title"><span class="icon">👥</span> Registered Citizens</div>
+            <div style="text-align:center;padding:1rem 0">
+              <div class="stat-icon" style="font-size:2.5rem">🏙</div>
+              <div class="stat-value" id="a-user-count" style="font-size:2rem">—</div>
+              <div class="stat-label">TOTAL USERS</div>
+            </div>
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-title"><span class="icon">🕐</span> System Timestamp</div>
+          <div style="font-family:var(--font-mono);font-size:0.9rem;color:var(--accent)" id="a-timestamp">—</div>
+        </div>
+      </div>
+
+      <!-- TAB: CONTROLS -->
+      <div class="tab-content" id="tab-controls">
+        <div class="grid-2 mb-15">
+
+          <div class="card">
+            <div class="card-title"><span class="icon">🚨</span> Emergency Override</div>
+            <p style="font-size:0.85rem;color:var(--text-muted);margin-bottom:1rem;line-height:1.6">
+              Activating emergency override broadcasts a city-wide alert and locks all citizen dashboards into emergency mode.
+            </p>
+            <button class="btn btn-danger btn-block" id="btn-emergency" onclick="triggerEmergency()">
+              🚨 TRIGGER EMERGENCY OVERRIDE
+            </button>
+          </div>
+
+          <div class="card">
+            <div class="card-title"><span class="icon">🧠</span> AI Brain Control</div>
+            <p style="font-size:0.85rem;color:var(--text-muted);margin-bottom:1rem;line-height:1.6">
+              Toggle the central AI brain between ONLINE and STANDBY mode. STANDBY disables autonomous city management.
+            </p>
+            <button class="btn btn-success btn-block" onclick="toggleAIBrain()">
+              🧠 TOGGLE AI BRAIN STATE
+            </button>
+          </div>
+
+        </div>
+
+        <div class="card mb-15">
+          <div class="card-title"><span class="icon">🔒</span> Security Level Management</div>
+          <p style="font-size:0.85rem;color:var(--text-muted);margin-bottom:1rem">
+            Select a threat level. Higher levels enforce stricter access protocols city-wide.
+          </p>
+          <div class="security-selector">
+            <button class="sec-btn" onclick="changeSecurityLevel('ALPHA')">🟢 ALPHA</button>
+            <button class="sec-btn" onclick="changeSecurityLevel('BETA')">🟡 BETA</button>
+            <button class="sec-btn" onclick="changeSecurityLevel('GAMMA')">🟠 GAMMA</button>
+            <button class="sec-btn" onclick="changeSecurityLevel('DELTA')">🔴 DELTA</button>
+            <button class="sec-btn" onclick="changeSecurityLevel('OMEGA')">⚫ OMEGA</button>
+          </div>
+        </div>
+
+        <div class="card" style="background:rgba(255,60,120,0.03);border-color:rgba(255,60,120,0.2)">
+          <div class="card-title"><span class="icon">⚠</span> Admin Privileges Notice</div>
+          <p style="font-size:0.85rem;color:var(--text-muted);line-height:1.7">
+            All administrative actions are <strong style="color:var(--accent3)">logged and audited</strong>. Misuse of admin controls is a violation of SmartCity Security Protocol §7.4. Citizens have read-only access and cannot reach this panel.
+          </p>
+        </div>
+      </div>
+
+      <!-- TAB: SENSORS -->
+      <div class="tab-content" id="tab-sensors">
+        <div class="section-header">
+          <div class="section-title">Live Sensor Network</div>
+          <button class="btn btn-ghost btn-sm" onclick="refreshSensorData()">🔄 REFRESH</button>
+        </div>
+
+        <div class="grid-2">
+          <div class="card">
+            <div class="card-title"><span class="icon">🌬</span> Air Quality Index</div>
+            <div class="sensor-item">
+              <div class="sensor-label"><span>AQI Reading</span><span id="s-air">—</span></div>
+              <div class="sensor-bar"><div class="sensor-bar-fill bar-low" id="bar-air" style="width:80%"></div></div>
+            </div>
+          </div>
+
+          <div class="card">
+            <div class="card-title"><span class="icon">🔊</span> Noise Level</div>
+            <div class="sensor-item">
+              <div class="sensor-label"><span>Decibels</span><span id="s-noise">—</span></div>
+              <div class="sensor-bar"><div class="sensor-bar-fill bar-med" id="bar-noise" style="width:50%"></div></div>
+            </div>
+          </div>
+
+          <div class="card">
+            <div class="card-title"><span class="icon">💧</span> Water Pressure</div>
+            <div class="sensor-item">
+              <div class="sensor-label"><span>PSI / Bar</span><span id="s-water">—</span></div>
+              <div class="sensor-bar"><div class="sensor-bar-fill bar-low" id="bar-water" style="width:75%"></div></div>
+            </div>
+          </div>
+
+          <div class="card">
+            <div class="card-title"><span class="icon">⚡</span> Grid Load</div>
+            <div class="sensor-item">
+              <div class="sensor-label"><span>Power Draw</span><span id="s-grid">—</span></div>
+              <div class="sensor-bar"><div class="sensor-bar-fill bar-med" id="bar-grid" style="width:65%"></div></div>
+            </div>
+          </div>
+
+          <div class="card" style="grid-column:1/-1">
+            <div class="card-title"><span class="icon">📷</span> Surveillance Camera Network</div>
+            <div class="sensor-item">
+              <div class="sensor-label"><span>Cameras Online</span><span id="s-cameras">—</span></div>
+              <div class="sensor-bar"><div class="sensor-bar-fill bar-low" id="bar-cameras" style="width:95%"></div></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- TAB: LOGS -->
+      <div class="tab-content" id="tab-logs">
+        <div class="section-header">
+          <div class="section-title">System Activity Logs</div>
+          <span style="font-family:var(--font-mono);font-size:0.68rem;color:var(--text-muted)">AUTO-REFRESH 4s</span>
+        </div>
+        <div class="card">
+          <div class="log-container" id="log-container">
+            <div class="log-entry" style="color:var(--text-dim)">Loading logs…</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- TAB: USERS -->
+      <div class="tab-content" id="tab-users">
+        <div class="section-header">
+          <div class="section-title">Registered Users</div>
+        </div>
+        <div class="card">
+          <div style="overflow-x:auto">
+            <table class="data-table">
+              <thead>
+                <tr>
+                  <th>#</th>
+                  <th>Username</th>
+                  <th>Full Name</th>
+                  <th>Role</th>
+                  <th>District</th>
+                  <th>Pincode</th>
+                  <th>Joined</th>
+                </tr>
+              </thead>
+              <tbody id="users-tbody">
+                <tr><td colspan="6" style="text-align:center;color:var(--text-dim)">Loading…</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+
+    </div><!-- /.dash-body -->
+  </div><!-- /.dashboard -->
+</div><!-- /#admin-page -->
+
+<!-- Scripts -->
+<script src="js/backend.js"></script>
+<script src="js/app.js"></script>
+<script>
+// Tab switching fix — pass button reference correctly
+document.querySelectorAll('.tab-btn').forEach(btn => {
+  btn.addEventListener('click', function() {
+    // Extract tab id from onclick attr or assign dynamically
+    const tabs = ['tab-overview','tab-controls','tab-sensors','tab-logs','tab-users'];
+    const idx = Array.from(document.querySelectorAll('.tab-btn')).indexOf(this);
+    if (tabs[idx]) switchTab(tabs[idx], this);
+  });
+});
+
+// Sync citizen orb status
+setInterval(() => {
+  const aiEl = document.getElementById('c-ai-status');
+  const orb = document.getElementById('c-ai-orb-status');
+  if (aiEl && orb) orb.textContent = 'AI BRAIN — ' + aiEl.textContent;
+
+  const aAi = document.getElementById('a-ai-status');
+  const aOrb = document.getElementById('a-ai-orb-status');
+  if (aAi && aOrb) aOrb.textContent = aAi.textContent;
+
+  // Sync citizen username badge
+  const u = document.getElementById('c-username');
+  const badge = document.getElementById('c-username-badge');
+  if (u && badge && u.textContent !== '—') badge.textContent = u.textContent;
+}, 1000);
+</script>
+
+</body>
+</html>
